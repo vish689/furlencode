@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Show Store</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="query.address" placeholder="Search for..." googleplace>
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button" ng-click="getStore()">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div> <br><br>
+      <div class="row">
+        <div class="col-md-4" ng-repeat="store in stores">
+          <div class="card card-info">
+            <div class="avatar">
+              <img src="" alt="" />
+            </div>
+            <div class="content">
+              <h3>{{store.name}}</h3>
+              <p >
+                <br>
+                <i class="fa fa-map-marker"></i>&nbsp;{{store.address}}
+              </p>
+              <div class="col-md-12 text-center" style="margin-left:4%;">
+                <!-- <div class="col-md-4">
+                  <div class="circle"></div>
+                  <p>Favorites Count</p>
+                </div>
+                <div class="col-md-4">
+                  <div class="circle"></div>
+                  <p>Friends Count</p>
+                </div>
+                <div class="col-md-4">
+                  <div class="circle"></div>
+                  <p>Followers Count</p>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

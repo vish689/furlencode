@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1 ,user-scalable=no, maximum-scale=1,width=device-width"/>
+    <title>NightOwl</title>
+    <link href="favicon.png" rel="shortcut icon">
+    <link href="//fonts.googleapis.com/css?family=Roboto|Montserrat:400,700|Open+Sans:400,300,600" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.jsdelivr.net/animatecss/3.2.0/animate.css" rel="stylesheet">
+    <link href="stylesheets/angular-toastr.css" rel="stylesheet">
+    <link href="stylesheets/styles.css" rel="stylesheet">
+</head>
+<body>
+<div class="page-load-spinner">
+    <div class="sk-folding-cube">
+        <div class="sk-cube1 sk-cube"></div>
+        <div class="sk-cube2 sk-cube"></div>
+        <div class="sk-cube4 sk-cube"></div>
+        <div class="sk-cube3 sk-cube"></div>
+    </div>
+</div>
+<div ng-controller="NavbarCtrl">
+    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">NightOwl</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/#/">Home</a></li>
+            </ul>
+            <ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
+                <li><a href="/#/login">Login</a></li>
+                <li><a href="/#/signup">Sign up</a></li>
+            </ul>
+            <ul ng-if="isAuthenticated()" class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/#/addstore" style="margin: 0px;padding: 0px">
+                        <button type="button" class="btn btn-success btn-outline" style="margin-top: 5%;">
+                            <i class="fa fa-plus"></i>&nbsp;Add Store
+                        </button>
+                    </a>
+                </li>
+                <li><a href="/#/getstore">List Stores</a></li>
+                <li><a href="/#/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div ui-view style="margin-top:75px;margin-bottom: 50px;"></div>
+
+<!-- Third-party Libraries -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-animate.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/angular-resource.js"></script>
+<script src="vendor/angular-sanitize.js"></script>
+<script src="vendor/angular-ui-router.js"></script>
+<script src="vendor/angular-toastr.tpls.js"></script>
+<script src="vendor/satellizer.js"></script>
+
+<!-- Application Code -->
+<script src="app.js"></script>
+<script src="directives/passwordStrength.js"></script>
+<script src="directives/passwordMatch.js"></script>
+<script src="controllers/home.js"></script>
+<script src="controllers/login.js"></script>
+<script src="controllers/signup.js"></script>
+<script src="controllers/logout.js"></script>
+<script src="controllers/profile.js"></script>
+<script src="controllers/navbar.js"></script>
+<script src="controllers/store.js"></script>
+<script src="services/account.js"></script>
+<script src="services/store.js"></script>
+
+<script type="text/javascript">
+  $(window).load(function () {
+    $(".page-load-spinner").fadeOut("slow");
+  })
+</script>
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+</body>
+</html>
